@@ -721,7 +721,7 @@ document.addEventListener('drop',e=>{e.preventDefault();document.getElementById(
 /* INIT */
 window.addEventListener('resize',()=>{echartInstances.forEach(c=>c.resize())});
 (async()=>{const oauthOk=await handleOAuthCallback();if(oauthOk)enterApp();else if(PixConfig.isAuth())enterApp()})();
-if(PixConfig.supabase){PixConfig.supabase.auth.onAuthStateChange(async(event,session)=>{if(event==='SIGNED_OUT'){PixConfig.clear();closeApp()}else if(event==='TOKEN_REFRESHED'&&session){try{const r=await fetch(PixConfig.apiBase+'/auth/google',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({supabase_access_token:session.access_token})});if(r.ok){const tokens=await r.json();PixConfig.setTokens(tokens.access_token,tokens.refresh_token)}}catch{}}})}
+if(PixConfig.supabase){PixConfig.supabase.auth.onAuthStateChange(async(event,session)=>{if(event==='SIGNED_OUT'){PixConfig.clear();closeApp()}else if(event==='TOKEN_REFRESHED'&&session){try{const r=await fetch(PixConfig.apiBase,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({route:'auth/google',method:'POST',body:{supabase_access_token:session.access_token}})});const tokens=await r.json();if(tokens.error)throw new Error(tokens.error);PixConfig.setTokens(tokens.access_token,tokens.refresh_token)}catch{}}})}
 </script>
 
 </body>
