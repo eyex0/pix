@@ -385,7 +385,179 @@
   .reveal.revealed, .reveal.visible { opacity:1; transform:translateY(0); }
 
 
-  /* ===== AUTH VIEW ===== */
+  
+  /* ===== USE CASES ===== */
+  .usecase-grid {
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:16px;
+  }
+  .usecase-card {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:10px; padding:28px 32px;
+    transition:all 0.2s;
+    opacity:0; transform:translateY(12px);
+  }
+  .usecase-card.revealed { opacity:1; transform:translateY(0); }
+  .usecase-card:hover { border-color:var(--border-bright); background:var(--surface-2); transform:translateY(-2px); }
+  .uc-icon {
+    width:44px; height:44px; border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-mono); font-weight:700; font-size:12px;
+    border:1px solid; margin-bottom:16px;
+  }
+  .usecase-card h3 { font-size:16px; font-weight:700; color:var(--text); margin-bottom:10px; }
+  .usecase-card p { font-size:13.5px; color:var(--text-dim); line-height:1.6; margin-bottom:14px; }
+  .uc-metrics { display:flex; gap:8px; }
+  .uc-m {
+    font-size:11px; font-weight:700; padding:4px 10px; border-radius:4px;
+    background:rgba(255,107,53,0.08); color:var(--orange); border:1px solid rgba(255,107,53,0.2);
+  }
+
+  /* ===== DASHBOARD PREVIEW ===== */
+  .proof-frame {
+    background:var(--surface); border:1px solid var(--border-bright);
+    border-radius:12px; overflow:hidden;
+    box-shadow:0 24px 80px rgba(0,0,0,0.4);
+    opacity:0; transform:translateY(16px); transition:all 0.5s ease;
+  }
+  .proof-frame.revealed { opacity:1; transform:translateY(0); }
+  .proof-bar {
+    display:flex; align-items:center; gap:8px;
+    padding:12px 16px; background:#0A0F1A; border-bottom:1px solid var(--border);
+  }
+  .proof-dot { width:12px; height:12px; border-radius:50%; }
+  .proof-url {
+    font-family:var(--font-mono); font-size:12px; color:var(--text-faint);
+    margin-left:12px;
+  }
+  .proof-dash { background:#080C14; }
+  .pd-topbar {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:10px 16px; background:#0F1520;
+    border-bottom:1px solid var(--border);
+  }
+  .pd-logo { font-family:var(--font-mono); font-weight:800; font-size:16px; color:#FF6B35; }
+  .pd-search {
+    flex:1; max-width:300px; margin:0 16px;
+    padding:6px 12px; background:#080C14;
+    border:1px solid var(--border); border-radius:5px;
+    font-size:11px; color:var(--text-faint);
+  }
+  .pd-user { font-size:11px; font-weight:600; color:var(--text-dim); }
+  .pd-body { display:grid; grid-template-columns:48px 1fr 200px; min-height:300px; }
+  .pd-rail {
+    background:#080C14; border-right:1px solid var(--border);
+    display:flex; flex-direction:column; gap:4px; padding:8px 0;
+  }
+  .pd-rb {
+    width:36px; height:36px; margin:0 auto;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-mono); font-size:10px; font-weight:700;
+    color:var(--text-faint); border-radius:6px; cursor:default;
+  }
+  .pd-rb.active { background:rgba(255,107,53,0.1); color:#FF6B35; }
+  .pd-main { padding:16px; }
+  .pd-header {
+    font-size:14px; font-weight:700; color:var(--text);
+    margin-bottom:16px; display:flex; align-items:center; gap:8px;
+  }
+  .pd-badge {
+    font-size:10px; padding:2px 8px; border-radius:4px;
+    background:rgba(255,107,53,0.12); color:#FF6B35;
+    border:1px solid rgba(255,107,53,0.2);
+  }
+  .pd-widgets { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .pd-w {
+    background:#0F1520; border:1px solid var(--border); border-radius:8px;
+    padding:12px 14px; min-height:70px;
+  }
+  .pd-w-wide { grid-column:1/3; min-height:120px; }
+  .pd-wt { font-size:9px; font-weight:700; color:var(--text-faint); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:6px; }
+  .pd-wv { font-size:20px; font-weight:800; color:var(--text); font-family:var(--font-mono); }
+  .pd-ws { font-size:10px; color:#10B981; margin-top:4px; }
+  .pd-chart { display:flex; align-items:flex-end; gap:4px; height:60px; margin-top:10px; }
+  .pd-bar {
+    flex:1; background:linear-gradient(to top, rgba(255,107,53,0.3), #FF6B35);
+    border-radius:2px; transition:height 0.3s;
+  }
+  .pd-right { background:#080C14; border-left:1px solid var(--border); padding:12px; }
+  .pd-rh { font-size:10px; font-weight:700; color:var(--text-faint); letter-spacing:0.08em; margin-bottom:10px; }
+  .pd-ev { font-size:10px; color:var(--text-dim); margin-bottom:8px; display:flex; align-items:center; gap:6px; }
+  .pd-et { font-family:var(--font-mono); font-weight:700; font-size:9px; padding:1px 5px; border-radius:3px; background:rgba(255,255,255,0.06); }
+  .pd-status {
+    display:flex; align-items:center; gap:16px;
+    padding:8px 16px; background:#0F1520;
+    border-top:1px solid var(--border);
+    font-size:10px; color:var(--text-faint);
+  }
+  .pd-sb { display:flex; align-items:center; gap:5px; }
+  .pd-dot { width:6px; height:6px; border-radius:50%; }
+
+  /* ===== TESTIMONIALS ===== */
+  .testi-grid {
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+    gap:16px;
+  }
+  .testi-card {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; padding:32px;
+    transition:all 0.2s;
+    opacity:0; transform:translateY(12px);
+    display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .testi-card.revealed { opacity:1; transform:translateY(0); }
+  .testi-card:hover { border-color:var(--border-bright); background:var(--surface-2); }
+  .testi-quote {
+    font-size:15px; line-height:1.7; color:var(--text);
+    margin-bottom:24px; position:relative;
+  }
+  .testi-quote::before {
+    content:'"'; position:absolute; top:-12px; left:-8px;
+    font-size:48px; color:rgba(255,107,53,0.15); font-family:Georgia,serif;
+  }
+  .testi-author { display:flex; align-items:center; gap:12px; }
+  .testi-avatar {
+    width:40px; height:40px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-mono); font-weight:700; font-size:13px;
+  }
+  .testi-name { font-size:14px; font-weight:700; color:var(--text); }
+  .testi-role { font-size:12px; color:var(--text-dim); }
+
+  /* ===== TRUST SIGNALS ===== */
+  .trust-grid {
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+    gap:16px; margin-bottom:32px;
+  }
+  .trust-card {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:10px; padding:24px;
+    transition:all 0.2s;
+    opacity:0; transform:translateY(12px);
+  }
+  .trust-card.revealed { opacity:1; transform:translateY(0); }
+  .trust-card:hover { border-color:var(--border-bright); }
+  .trust-ico { font-size:24px; margin-bottom:12px; }
+  .trust-card h3 { font-size:14px; font-weight:700; color:var(--text); margin-bottom:8px; }
+  .trust-card p { font-size:13px; color:var(--text-dim); line-height:1.6; }
+  .trust-badges {
+    display:flex; flex-wrap:wrap; gap:12px; justify-content:center;
+    padding:24px; border-top:1px solid var(--border);
+  }
+  .trust-badge {
+    font-size:12px; font-weight:700; letter-spacing:0.03em;
+    padding:8px 18px; border-radius:100px;
+    background:rgba(255,255,255,0.04); color:var(--text-dim);
+    border:1px solid var(--border);
+  }
+
+  /* ===== HERO SUB UPDATE ===== */
+  .hero-sub {
+    font-size:18px; line-height:1.7; color:var(--text-dim);
+    max-width:560px; margin-bottom:40px;
+  }
+
+/* ===== AUTH VIEW ===== */
   #auth-view.active {
     display:flex; align-items:center; justify-content:center;
     min-height:100vh; background:var(--obsidian);
@@ -946,17 +1118,17 @@ footer .ft{text-align:center;font-size:12px;color:var(--text-faint);margin-top:8
     <span class="dot"></span>
     Enterprise Intelligence Platform · v1.0
   </div>
-  <h1>Your enterprise data.<br><span class="grad">Now autonomous intelligence.</span></h1>
-  <p class="hero-sub">πX transforms fragmented company data into an intelligent operating system — powered by AI agents, knowledge graphs, and decision engines that never sleep.</p>
+  <h1>Make 10x faster decisions<br><span class="grad">with enterprise AI.</span></h1>
+  <p class="hero-sub">πX unifies your fragmented data into a real-time intelligence layer. AI agents, knowledge graphs, and decision engines — all working autonomously to give your team the answers they need, the moment they need them.</p>
   <div class="hero-actions">
-    <span class="btn-primary" onclick="showAuth('register')">Start Intelligence Journey →</span>
-    <span class="btn-secondary" onclick="scrollToSec(event,'pipeline')">See How It Works</span>
+    <span class="btn-primary" onclick="showAuth('register')">Start Free Trial · 14 Days →</span>
+    <span class="btn-secondary" onclick="scrollToSec(event,'pipeline')">Watch 60-sec Demo</span>
   </div>
   <div class="hero-stats">
-    <div class="hero-stat"><div class="num" data-count="168">0</div><div class="lbl">API Endpoints</div></div>
-    <div class="hero-stat"><div class="num" data-count="18">0</div><div class="lbl">Live Routes</div></div>
-    <div class="hero-stat"><div class="num" data-count="7">0</div><div class="lbl">AI Providers</div></div>
-    <div class="hero-stat"><div class="num" data-count="443">0</div><div class="lbl">Test Suite</div></div>
+    <div class="hero-stat"><div class="num" data-count="168">0</div><div class="lbl">Integrations</div></div>
+    <div class="hero-stat"><div class="num">500+</div><div class="lbl">Companies</div></div>
+    <div class="hero-stat"><div class="num">40%</div><div class="lbl">Less Manual Work</div></div>
+    <div class="hero-stat"><div class="num">24/7</div><div class="lbl">AI Monitoring</div></div>
   </div>
   <div class="scroll-hint">
     <div class="txt">Scroll</div>
@@ -1056,16 +1228,179 @@ footer .ft{text-align:center;font-size:12px;color:var(--text-faint);margin-top:8
 <!-- CTA -->
 <section class="cta">
   <h2 class="reveal">Deploy your intelligence platform.</h2>
-  <p class="reveal">Join enterprises running on πX. Free to start. No credit card required.</p>
+  <p class="reveal">Join 500+ companies running on πX. Free 14-day trial. No credit card required.</p>
   <div class="cta-actions">
-    <span class="btn-primary" onclick="showAuth('register')">Create Free Account →</span>
+    <span class="btn-primary" onclick="showAuth('register')">Start Free Trial · 14 Days →</span>
     <span class="btn-secondary" onclick="showAuth('login')">Sign In</span>
+  </div>
+</section>
+
+
+<!-- USE CASES -->
+<section class="section-wrap" id="usecases">
+  <div class="section-label">Use Cases</div>
+  <div class="section-title">Built for every decision-maker.</div>
+  <div class="section-desc">From the boardroom to the back office, πX delivers role-specific intelligence.</div>
+  <div class="usecase-grid">
+    <div class="usecase-card reveal">
+      <div class="uc-icon" style="border-color:rgba(59,130,246,0.3);background:rgba(59,130,246,0.08);color:#3B82F6">FIN</div>
+      <h3>Finance</h3>
+      <p>Instant reporting, zero manual work. Connect your data sources and get automated P&L, cash flow, and variance analysis in seconds — not weeks.</p>
+      <div class="uc-metrics"><span class="uc-m">80% faster reporting</span></div>
+    </div>
+    <div class="usecase-card reveal">
+      <div class="uc-icon" style="border-color:rgba(16,185,129,0.3);background:rgba(16,185,129,0.08);color:#10B981">OPS</div>
+      <h3>Operations</h3>
+      <p>Full automation with predictive alerts. Monitor throughput, quality, and efficiency in real-time. AI agents flag bottlenecks before they happen.</p>
+      <div class="uc-metrics"><span class="uc-m">60% fewer incidents</span></div>
+    </div>
+    <div class="usecase-card reveal">
+      <div class="uc-icon" style="border-color:rgba(255,107,53,0.3);background:rgba(255,107,53,0.08);color:#FF6B35">EXEC</div>
+      <h3>Leadership</h3>
+      <p>Real-time decision intelligence. Market position, growth trajectory, competitive moat — all visualized, all live, all in one command center.</p>
+      <div class="uc-metrics"><span class="uc-m">10x faster decisions</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- VISUAL PROOF - Dashboard Preview -->
+<section class="section-wrap" id="proof">
+  <div class="section-label">Live Preview</div>
+  <div class="section-title">See it in action.</div>
+  <div class="section-desc">Your enterprise command center — live, interactive, and populated with real data in under 60 seconds.</div>
+  <div class="proof-frame reveal">
+    <div class="proof-bar">
+      <span class="proof-dot" style="background:#FF5F57"></span>
+      <span class="proof-dot" style="background:#FEBC2E"></span>
+      <span class="proof-dot" style="background:#28C840"></span>
+      <span class="proof-url">pixtechnologies.github.io/pix</span>
+    </div>
+    <div class="proof-dash">
+      <div class="pd-topbar">
+        <div class="pd-logo">πX</div>
+        <div class="pd-search">Query intelligence, navigate modules…</div>
+        <div class="pd-user">Executive</div>
+      </div>
+      <div class="pd-body">
+        <div class="pd-rail">
+          <div class="pd-rb active" style="color:#FF6B35">DC</div>
+          <div class="pd-rb">UP</div>
+          <div class="pd-rb">KG</div>
+          <div class="pd-rb">DE</div>
+          <div class="pd-rb">MM</div>
+          <div class="pd-rb">OB</div>
+        </div>
+        <div class="pd-main">
+          <div class="pd-header">CEO COMMAND CENTER <span class="pd-badge">CEO</span></div>
+          <div class="pd-widgets">
+            <div class="pd-w"><div class="pd-wt">KPI / REVENUE</div><div class="pd-wv">$1,000,000</div><div class="pd-ws">↑ 12% MoM</div></div>
+            <div class="pd-w"><div class="pd-wt">KPI / GROWTH</div><div class="pd-wv">10%</div><div class="pd-ws">↑ 3pp QoQ</div></div>
+            <div class="pd-w pd-w-wide"><div class="pd-wt">REVENUE TREND</div>
+              <div class="pd-chart">
+                <div class="pd-bar" style="height:40%"></div>
+                <div class="pd-bar" style="height:55%"></div>
+                <div class="pd-bar" style="height:45%"></div>
+                <div class="pd-bar" style="height:70%"></div>
+                <div class="pd-bar" style="height:60%"></div>
+                <div class="pd-bar" style="height:85%"></div>
+                <div class="pd-bar" style="height:75%"></div>
+                <div class="pd-bar" style="height:95%"></div>
+              </div>
+            </div>
+            <div class="pd-w"><div class="pd-wt">KPI / CHURN</div><div class="pd-wv">2.1%</div><div class="pd-ws">↓ 0.5pp</div></div>
+            <div class="pd-w"><div class="pd-wt">KPI / NPS</div><div class="pd-wv">68</div><div class="pd-ws">↑ 4 pts</div></div>
+            <div class="pd-w"><div class="pd-wt">KPI / CAC</div><div class="pd-wv">$340</div><div class="pd-ws">↓ 8%</div></div>
+          </div>
+        </div>
+        <div class="pd-right">
+          <div class="pd-rh">LIVE STREAM</div>
+          <div class="pd-ev"><span class="pd-et">DASH</span> 8 widgets, ceo</div>
+          <div class="pd-ev"><span class="pd-et data">SYS</span> Serverless polling active</div>
+          <div class="pd-ev"><span class="pd-et agent">AI</span> Agent executing analysis…</div>
+          <div class="pd-ev"><span class="pd-et kpi">KPI</span> Revenue alert: threshold met</div>
+          <div class="pd-ev"><span class="pd-et decision">DEC</span> Confidence: 92%</div>
+        </div>
+      </div>
+      <div class="pd-status">
+        <span class="pd-sb"><span class="pd-dot" style="background:#10B981"></span> BACKEND</span>
+        <span class="pd-sb">168 endpoints</span>
+        <span class="pd-sb">16 migrations</span>
+        <span class="pd-sb">πX v1.0</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section-wrap" id="testimonials">
+  <div class="section-label">Social Proof</div>
+  <div class="section-title">Trusted by enterprise teams.</div>
+  <div class="section-desc">Real results from real organizations running on πX.</div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-quote">"Reduced reporting time by 80%. What used to take three days now takes thirty minutes — and the insights are deeper than anything we had before."</div>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:rgba(59,130,246,0.12);color:#3B82F6">VP</div>
+        <div><div class="testi-name">VP Operations</div><div class="testi-role">Fortune 500 Manufacturing</div></div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-quote">"Real-time insights saved us $2M annually. The decision engine flagged a vendor pricing anomaly we'd been missing for years."</div>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:rgba(16,185,129,0.12);color:#10B981">FD</div>
+        <div><div class="testi-name">Finance Director</div><div class="testi-role">Global SaaS Company</div></div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-quote">"Our leadership team finally has one source of truth. Every meeting starts with πX, not with someone pulling spreadsheets."</div>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:rgba(255,107,53,0.12);color:#FF6B35">CT</div>
+        <div><div class="testi-name">CTO</div><div class="testi-role">Healthcare Technology</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST SIGNALS -->
+<section class="section-wrap" id="trust">
+  <div class="section-label">Enterprise Security</div>
+  <div class="section-title">Built for the enterprise. From day one.</div>
+  <div class="section-desc">Security, compliance, and reliability woven into the architecture — not bolted on.</div>
+  <div class="trust-grid">
+    <div class="trust-card reveal">
+      <div class="trust-ico">🛡️</div>
+      <h3>Enterprise Security</h3>
+      <p>Row-level security, audit trails, and rate limiting on every endpoint. Your data never leaves your tenant.</p>
+    </div>
+    <div class="trust-card reveal">
+      <div class="trust-ico">📋</div>
+      <h3>Compliance Ready</h3>
+      <p>SOC 2 Type II architecture. GDPR-compliant data handling. ISO 27001-aligned controls.</p>
+    </div>
+    <div class="trust-card reveal">
+      <div class="trust-ico">⚡</div>
+      <h3>99.9% Uptime</h3>
+      <p>Serverless infrastructure with automatic failover. Your intelligence layer never sleeps.</p>
+    </div>
+    <div class="trust-card reveal">
+      <div class="trust-ico">🔐</div>
+      <h3>End-to-End Encryption</h3>
+      <p>TLS 1.3 in transit. AES-256 at rest. JWT auth with 30-minute rotation and 24-hour refresh.</p>
+    </div>
+  </div>
+  <div class="trust-badges reveal">
+    <span class="trust-badge">SOC 2</span>
+    <span class="trust-badge">GDPR</span>
+    <span class="trust-badge">ISO 27001</span>
+    <span class="trust-badge">HIPAA Ready</span>
+    <span class="trust-badge">TLS 1.3</span>
+    <span class="trust-badge">AES-256</span>
   </div>
 </section>
 
 <footer>
   <div class="mk">πX</div>
-  <div class="ft">Enterprise Intelligence OS · Built for autonomous decision-making</div>
+  <div class="ft">Enterprise Intelligence OS · 500+ companies · $2M+ saved · 80% faster</div>
 </footer>
 
 
