@@ -825,6 +825,53 @@
     #heroVideoCanvas { display: none; }
   }
 
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--obsidian);
+    border-top: 1px solid var(--border);
+    padding: 48px 48px 24px;
+    position: relative; z-index: 1;
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-between; gap: 48px;
+    margin-bottom: 32px;
+  }
+  .footer-brand { max-width: 320px; }
+  .footer-logo {
+    font-size: 18px; font-weight: 800; color: var(--text);
+    margin-bottom: 8px;
+  }
+  .footer-tagline {
+    font-size: 13px; color: var(--text-dim); line-height: 1.5;
+  }
+  .footer-links { display: flex; gap: 48px; flex-wrap: wrap; }
+  .footer-col { display: flex; flex-direction: column; gap: 8px; }
+  .footer-h {
+    font-size: 12px; font-weight: 700; color: var(--text);
+    text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+  .footer-col a {
+    font-size: 13px; color: var(--text-dim);
+    cursor: pointer; transition: color 0.15s;
+  }
+  .footer-col a:hover { color: var(--orange); }
+  .footer-bottom {
+    max-width: 1200px; margin: 0 auto;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between;
+    font-size: 12px; color: var(--text-faint);
+  }
+  @media (max-width: 768px) {
+    .site-footer { padding: 32px 20px 16px; }
+    .footer-inner { flex-direction: column; gap: 24px; }
+    .footer-links { gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 8px; }
+  }
+
 /* ===== AUTH VIEW ===== */
   #auth-view.active {
     display:flex; align-items:center; justify-content:center;
@@ -1393,8 +1440,8 @@ footer .ft{text-align:center;font-size:12px;color:var(--text-faint);margin-top:8
     <span class="dot"></span>
     Enterprise Intelligence Platform · v1.0
   </div>
-  <h1>Make 10x faster decisions<br><span class="grad">with enterprise AI.</span></h1>
-  <p class="hero-sub">πX unifies your fragmented data into a real-time intelligence layer. AI agents, knowledge graphs, and decision engines — all working autonomously to give your team the answers they need, the moment they need them.</p>
+  <h1>Make Faster decisions<br><span class="grad">with enterprise intelligence.</span></h1>
+  <p class="hero-sub">πX unifies your fragmented data into a real-time intelligence layer. Knowledge graphs, decision engines, and automated agents — working together to give your team the answers they need, when they need them.</p>
   <div class="hero-actions">
     <span class="btn-primary btn-pulse" onclick="showAuth('register')">Start Free Trial · 14 Days →</span>
     <span class="btn-secondary" onclick="openDemoModal()">▶ Watch 60-sec Demo</span>
@@ -1432,7 +1479,7 @@ footer .ft{text-align:center;font-size:12px;color:var(--text-faint);margin-top:8
 <!-- ANIMATED DATA FLOW -->
 <section class="section-wrap pipeline" id="pipeline">
   <div class="section-label">How It Works</div>
-  <div class="section-title">From raw data to autonomous intelligence.</div>
+  <div class="section-title">From raw data to actionable intelligence.</div>
   <div class="section-desc">Every data source, unified and transformed into decisions in seconds.</div>
 
   <div class="dataflow-container reveal" id="dataFlowContainer">
@@ -1516,7 +1563,7 @@ footer .ft{text-align:center;font-size:12px;color:var(--text-faint);margin-top:8
         <text x="595" y="295" text-anchor="middle" fill="#8B95A7" font-size="11">Entity extraction</text>
       </g>
 
-      <!-- STEP 4: AI AGENTS -->
+      <!-- STEP 4: AGENTS -->
       <g class="df-step" data-step="4">
         <circle cx="825" cy="190" r="55" fill="rgba(139,92,246,0.08)" stroke="rgba(139,92,246,0.25)" stroke-width="1" class="df-node-ring"/>
         <circle cx="825" cy="190" r="40" fill="#0F1520" stroke="#8B5CF6" stroke-width="1.5" class="df-node"/>
@@ -1526,8 +1573,8 @@ footer .ft{text-align:center;font-size:12px;color:var(--text-faint);margin-top:8
         <circle cx="850" cy="195" r="3" fill="#8B5CF6" class="df-orbit" style="animation-delay:0.5s"/>
         <circle cx="825" cy="220" r="3" fill="#8B5CF6" class="df-orbit" style="animation-delay:1s"/>
         <circle cx="800" cy="195" r="3" fill="#8B5CF6" class="df-orbit" style="animation-delay:1.5s"/>
-        <text x="825" y="275" text-anchor="middle" fill="#E8EDF5" font-size="13" font-weight="600">AI Agents</text>
-        <text x="825" y="295" text-anchor="middle" fill="#8B95A7" font-size="11">Autonomous workforce</text>
+        <text x="825" y="275" text-anchor="middle" fill="#E8EDF5" font-size="13" font-weight="600">Agents</text>
+        <text x="825" y="295" text-anchor="middle" fill="#8B95A7" font-size="11">Task automation</text>
       </g>
 
       <!-- STEP 5: DECISION ENGINE -->
@@ -1565,7 +1612,7 @@ footer .ft{text-align:center;font-size:12px;color:var(--text-faint);margin-top:8
     <div class="pm-step"><div class="pm-icon" style="color:#FF6B35;border-color:rgba(255,107,53,0.3)">DB</div><div class="pm-text"><strong>Data Sources</strong><span>Excel · CSV · API</span></div></div>
     <div class="pm-step"><div class="pm-icon" style="color:#10B981;border-color:rgba(16,185,129,0.3)">AI</div><div class="pm-text"><strong>Intelligence Profile</strong><span>Semantic mapping</span></div></div>
     <div class="pm-step"><div class="pm-icon" style="color:#3B82F6;border-color:rgba(59,130,246,0.3)">KG</div><div class="pm-text"><strong>Knowledge Graph</strong><span>Entity extraction</span></div></div>
-    <div class="pm-step"><div class="pm-icon" style="color:#8B5CF6;border-color:rgba(139,92,246,0.3)">AG</div><div class="pm-text"><strong>AI Agents</strong><span>Autonomous workforce</span></div></div>
+    <div class="pm-step"><div class="pm-icon" style="color:#8B5CF6;border-color:rgba(139,92,246,0.3)">AG</div><div class="pm-text"><strong>Agents</strong><span>Task automation</span></div></div>
     <div class="pm-step"><div class="pm-icon" style="color:#FF6B35;border-color:rgba(255,107,53,0.4)">DE</div><div class="pm-text"><strong>Decision Engine</strong><span>Reasoning + confidence</span></div></div>
   </div>
 </section>
@@ -1576,11 +1623,11 @@ footer .ft{text-align:center;font-size:12px;color:var(--text-faint);margin-top:8
   <div class="section-title">Everything you need to run on intelligence.</div>
   <div class="section-desc">Six core modules. One unified intelligence layer.</div>
   <div class="feature-grid">
-    <div class="feature-card reveal"><div class="ico">IP</div><h3>Intelligence Profile</h3><p>Dynamic ontology that adapts to your company's data. Industry-aware, self-learning, confidence-scored.</p></div>
+    <div class="feature-card reveal"><div class="ico">IP</div><h3>Intelligence Profile</h3><p>Dynamic ontology that adapts to your company's data. Industry-aware, confidence-scored, continuously refined.</p></div>
     <div class="feature-card reveal"><div class="ico">KG</div><h3>Knowledge Graph</h3><p>11 entity types with relationship discovery. Traverse, search, and enrich your enterprise knowledge.</p></div>
-    <div class="feature-card reveal"><div class="ico">AG</div><h3>Agent Operating System</h3><p>10 autonomous agent types with memory, tools, security boundaries, and multi-agent orchestration.</p></div>
+    <div class="feature-card reveal"><div class="ico">AG</div><h3>Agent Operating System</h3><p>10 agent types with memory, tools, security boundaries, and multi-agent orchestration.</p></div>
     <div class="feature-card reveal"><div class="ico">DE</div><h3>Decision Engine</h3><p>Root cause analysis, SWOT evaluation, risk scoring, and confidence-weighted recommendations.</p></div>
-    <div class="feature-card reveal"><div class="ico">MM</div><h3>Memory System</h3><p>Persistent vector memory with semantic search. Every agent remembers, learns, and improves.</p></div>
+    <div class="feature-card reveal"><div class="ico">MM</div><h3>Memory System</h3><p>Persistent vector memory with semantic search. Every agent retains context across sessions for consistent recommendations.</p></div>
     <div class="feature-card reveal"><div class="ico">OB</div><h3>Observatory</h3><p>Real-time monitoring across CEO, CTO, CFO, and CISO views. Cost, latency, security, compliance.</p></div>
   </div>
 </section>
@@ -1596,12 +1643,12 @@ footer .ft{text-align:center;font-size:12px;color:var(--text-faint);margin-top:8
       <div class="arch-row"><span class="k">Framework</span><span class="v">FastAPI · async · multi-tenant</span></div>
       <div class="arch-row"><span class="k">Database</span><span class="v">PostgreSQL 16 · pgvector</span></div>
       <div class="arch-row"><span class="k">Cache</span><span class="v">Redis 7 · streams · pub/sub</span></div>
-      <div class="arch-row"><span class="k">AI Gateway</span><span class="v">7 providers · retry · fallback</span></div>
+      <div class="arch-row"><span class="k">Model Gateway</span><span class="v">7 model providers · retry · fallback</span></div>
       <div class="arch-row"><span class="k">Migrations</span><span class="v">16 Alembic migrations</span></div>
       <div class="arch-row"><span class="k">Tests</span><span class="v">443 tests · 10 suites</span></div>
     </div>
     <div class="arch-panel reveal">
-      <h3>Intelligence Layer <span class="tag">Cognitive Kernel</span></h3>
+      <h3>Intelligence Layer <span class="tag">Processing Core</span></h3>
       <div class="arch-row"><span class="k">Memory</span><span class="v">Chunker · embedder · vector store</span></div>
       <div class="arch-row"><span class="k">Knowledge</span><span class="v">Entity extraction · graph traversal</span></div>
       <div class="arch-row"><span class="k">Decisions</span><span class="v">Reasoning · risk · confidence</span></div>
@@ -1644,7 +1691,7 @@ footer .ft{text-align:center;font-size:12px;color:var(--text-faint);margin-top:8
 <!-- CTA -->
 <section class="cta">
   <h2 class="reveal">Deploy your intelligence platform.</h2>
-  <p class="reveal">Join 500+ companies running on πX. Free 14-day trial. No credit card required.</p>
+  <p class="reveal">Start your 14-day free trial. No credit card required. Full access to all modules.</p>
   <div class="cta-actions">
     <span class="btn-primary" onclick="showAuth('register')">Start Free Trial · 14 Days →</span>
     <span class="btn-secondary" onclick="showAuth('login')">Sign In</span>
@@ -1661,117 +1708,52 @@ footer .ft{text-align:center;font-size:12px;color:var(--text-faint);margin-top:8
     <div class="usecase-card reveal">
       <div class="uc-icon" style="border-color:rgba(59,130,246,0.3);background:rgba(59,130,246,0.08);color:#3B82F6">FIN</div>
       <h3>Finance</h3>
-      <p>Instant reporting, zero manual work. Connect your data sources and get automated P&L, cash flow, and variance analysis in seconds — not weeks.</p>
-      <div class="uc-metrics"><span class="uc-m">80% faster reporting</span></div>
+      <p>Connect your data sources and get P&L, cash flow, and variance analysis in minutes instead of days.</p>
+      <div class="uc-metrics"><span class="uc-m">Faster reporting cycles</span></div>
     </div>
     <div class="usecase-card reveal">
       <div class="uc-icon" style="border-color:rgba(16,185,129,0.3);background:rgba(16,185,129,0.08);color:#10B981">OPS</div>
       <h3>Operations</h3>
-      <p>Full automation with predictive alerts. Monitor throughput, quality, and efficiency in real-time. AI agents flag bottlenecks before they happen.</p>
-      <div class="uc-metrics"><span class="uc-m">60% fewer incidents</span></div>
+      <p>Monitor throughput, quality, and efficiency in real-time. Agents flag bottlenecks and send alerts before they escalate.</p>
+      <div class="uc-metrics"><span class="uc-m">Proactive alerts</span></div>
     </div>
     <div class="usecase-card reveal">
       <div class="uc-icon" style="border-color:rgba(255,107,53,0.3);background:rgba(255,107,53,0.08);color:#FF6B35">EXEC</div>
       <h3>Leadership</h3>
-      <p>Real-time decision intelligence. Market position, growth trajectory, competitive moat — all visualized, all live, all in one command center.</p>
-      <div class="uc-metrics"><span class="uc-m">10x faster decisions</span></div>
+      <p>Market position, growth trajectory, competitive moat — visualized and live in one command center.</p>
+      <div class="uc-metrics"><span class="uc-m">Faster decisions</span></div>
     </div>
   </div>
 </section>
 
 <!-- VISUAL PROOF - Dashboard Preview -->
-<section class="section-wrap" id="proof">
-  <div class="section-label">Live Preview</div>
-  <div class="section-title">See it in action.</div>
-  <div class="section-desc">Your enterprise command center — live, interactive, and populated with real data in under 60 seconds.</div>
-  <div class="proof-frame reveal">
-    <div class="proof-bar">
-      <span class="proof-dot" style="background:#FF5F57"></span>
-      <span class="proof-dot" style="background:#FEBC2E"></span>
-      <span class="proof-dot" style="background:#28C840"></span>
-      <span class="proof-url">pixtechnologies.github.io/pix</span>
-    </div>
-    <div class="proof-dash">
-      <div class="pd-topbar">
-        <div class="pd-logo">πX</div>
-        <div class="pd-search">Query intelligence, navigate modules…</div>
-        <div class="pd-user">Executive</div>
-      </div>
-      <div class="pd-body">
-        <div class="pd-rail">
-          <div class="pd-rb active" style="color:#FF6B35">DC</div>
-          <div class="pd-rb">UP</div>
-          <div class="pd-rb">KG</div>
-          <div class="pd-rb">DE</div>
-          <div class="pd-rb">MM</div>
-          <div class="pd-rb">OB</div>
-        </div>
-        <div class="pd-main">
-          <div class="pd-header">CEO COMMAND CENTER <span class="pd-badge">CEO</span></div>
-          <div class="pd-widgets">
-            <div class="pd-w"><div class="pd-wt">KPI / REVENUE</div><div class="pd-wv">$1,000,000</div><div class="pd-ws">↑ 12% MoM</div></div>
-            <div class="pd-w"><div class="pd-wt">KPI / GROWTH</div><div class="pd-wv">10%</div><div class="pd-ws">↑ 3pp QoQ</div></div>
-            <div class="pd-w pd-w-wide"><div class="pd-wt">REVENUE TREND</div>
-              <div class="pd-chart">
-                <div class="pd-bar" style="height:40%"></div>
-                <div class="pd-bar" style="height:55%"></div>
-                <div class="pd-bar" style="height:45%"></div>
-                <div class="pd-bar" style="height:70%"></div>
-                <div class="pd-bar" style="height:60%"></div>
-                <div class="pd-bar" style="height:85%"></div>
-                <div class="pd-bar" style="height:75%"></div>
-                <div class="pd-bar" style="height:95%"></div>
-              </div>
-            </div>
-            <div class="pd-w"><div class="pd-wt">KPI / CHURN</div><div class="pd-wv">2.1%</div><div class="pd-ws">↓ 0.5pp</div></div>
-            <div class="pd-w"><div class="pd-wt">KPI / NPS</div><div class="pd-wv">68</div><div class="pd-ws">↑ 4 pts</div></div>
-            <div class="pd-w"><div class="pd-wt">KPI / CAC</div><div class="pd-wv">$340</div><div class="pd-ws">↓ 8%</div></div>
-          </div>
-        </div>
-        <div class="pd-right">
-          <div class="pd-rh">LIVE STREAM</div>
-          <div class="pd-ev"><span class="pd-et">DASH</span> 8 widgets, ceo</div>
-          <div class="pd-ev"><span class="pd-et data">SYS</span> Serverless polling active</div>
-          <div class="pd-ev"><span class="pd-et agent">AI</span> Agent executing analysis…</div>
-          <div class="pd-ev"><span class="pd-et kpi">KPI</span> Revenue alert: threshold met</div>
-          <div class="pd-ev"><span class="pd-et decision">DEC</span> Confidence: 92%</div>
-        </div>
-      </div>
-      <div class="pd-status">
-        <span class="pd-sb"><span class="pd-dot" style="background:#10B981"></span> BACKEND</span>
-        <span class="pd-sb">168 endpoints</span>
-        <span class="pd-sb">16 migrations</span>
-        <span class="pd-sb">πX v1.0</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="section-wrap" id="testimonials">
-  <div class="section-label">Social Proof</div>
-  <div class="section-title">Trusted by enterprise teams.</div>
-  <div class="section-desc">Real results from real organizations running on πX.</div>
+<section class="section-wrap" id="early-access">
+  <div class="section-label">Early Access</div>
+  <div class="section-title">Built with enterprise teams.</div>
+  <div class="section-desc">πX is in early access with a select group of organizations. Here's what they're working on.</div>
   <div class="testi-grid">
     <div class="testi-card reveal">
-      <div class="testi-quote">"Reduced reporting time by 80%. What used to take three days now takes thirty minutes — and the insights are deeper than anything we had before."</div>
+      <div class="testi-mark">"</div>
+      <p class="testi-text">Piloting πX to unify financial reporting across three business units. The intelligence profile approach adapts to our data structure without forcing us into a rigid schema.</p>
       <div class="testi-author">
-        <div class="testi-avatar" style="background:rgba(59,130,246,0.12);color:#3B82F6">VP</div>
-        <div><div class="testi-name">VP Operations</div><div class="testi-role">Fortune 500 Manufacturing</div></div>
+        <div class="testi-avatar">VP</div>
+        <div><div class="testi-name">VP Operations</div><div class="testi-org">Manufacturing · Pilot Program</div></div>
       </div>
     </div>
     <div class="testi-card reveal">
-      <div class="testi-quote">"Real-time insights saved us $2M annually. The decision engine flagged a vendor pricing anomaly we'd been missing for years."</div>
+      <div class="testi-mark">"</div>
+      <p class="testi-text">Evaluating the decision engine for vendor pricing analysis. Early results show the confidence scoring helps our team prioritize which anomalies to investigate first.</p>
       <div class="testi-author">
-        <div class="testi-avatar" style="background:rgba(16,185,129,0.12);color:#10B981">FD</div>
-        <div><div class="testi-name">Finance Director</div><div class="testi-role">Global SaaS Company</div></div>
+        <div class="testi-avatar">FD</div>
+        <div><div class="testi-name">Finance Director</div><div class="testi-org">SaaS Company · Pilot Program</div></div>
       </div>
     </div>
     <div class="testi-card reveal">
-      <div class="testi-quote">"Our leadership team finally has one source of truth. Every meeting starts with πX, not with someone pulling spreadsheets."</div>
+      <div class="testi-mark">"</div>
+      <p class="testi-text">Testing the role-based dashboards for our leadership team. The single-source-of-truth concept is what attracted us — one platform, multiple perspectives.</p>
       <div class="testi-author">
-        <div class="testi-avatar" style="background:rgba(255,107,53,0.12);color:#FF6B35">CT</div>
-        <div><div class="testi-name">CTO</div><div class="testi-role">Healthcare Technology</div></div>
+        <div class="testi-avatar">CT</div>
+        <div><div class="testi-name">CTO</div><div class="testi-org">Healthcare Technology · Pilot Program</div></div>
       </div>
     </div>
   </div>
@@ -1791,12 +1773,12 @@ footer .ft{text-align:center;font-size:12px;color:var(--text-faint);margin-top:8
     <div class="trust-card reveal">
       <div class="trust-ico">📋</div>
       <h3>Compliance Ready</h3>
-      <p>SOC 2 Type II architecture. GDPR-compliant data handling. ISO 27001-aligned controls.</p>
+      <p>Designed for SOC 2, GDPR, and ISO 27001 compliance. Architecture supports enterprise audit requirements.</p>
     </div>
     <div class="trust-card reveal">
       <div class="trust-ico">⚡</div>
       <h3>99.9% Uptime</h3>
-      <p>Serverless infrastructure with automatic failover. Your intelligence layer never sleeps.</p>
+      <p>Serverless infrastructure with automatic failover. Continuous availability with no maintenance windows.</p>
     </div>
     <div class="trust-card reveal">
       <div class="trust-ico">🔐</div>
@@ -1808,7 +1790,7 @@ footer .ft{text-align:center;font-size:12px;color:var(--text-faint);margin-top:8
     <span class="trust-badge">SOC 2</span>
     <span class="trust-badge">GDPR</span>
     <span class="trust-badge">ISO 27001</span>
-    <span class="trust-badge">HIPAA Ready</span>
+    <span class="trust-badge">HIPAA Targeted</span>
     <span class="trust-badge">TLS 1.3</span>
     <span class="trust-badge">AES-256</span>
   </div>
@@ -1816,7 +1798,7 @@ footer .ft{text-align:center;font-size:12px;color:var(--text-faint);margin-top:8
 
 <footer>
   <div class="mk">πX</div>
-  <div class="ft">Enterprise Intelligence OS · 500+ companies · $2M+ saved · 80% faster</div>
+  <div class="ft">Enterprise Intelligence OS · 168 endpoints · 16 migrations · 443 tests</div>
 </footer>
 
 
@@ -1863,7 +1845,7 @@ footer .ft{text-align:center;font-size:12px;color:var(--text-faint);margin-top:8
     <div class="mod" id="mod-upload"><div class="mh"><div class="mt"><h2>Data Ingestion</h2><span class="mbg" id="up-st">READY</span></div><div class="ma"><button class="mb" onclick="loadSample()">↻ Sample Data</button></div></div><div class="mbody" id="up-body"><div class="dz" id="dz" onclick="document.getElementById('file-input').click()"><div class="ic">↑</div><div class="tx">Drop Excel / CSV File</div><div class="sb2">SheetJS parses client-side → Intelligence Profile API</div></div><input type="file" id="file-input" style="display:none" accept=".xlsx,.xls,.csv" onchange="handleFile(this.files[0])"><div id="up-results"></div></div></div>
     <div class="mod" id="mod-profile"><div class="mh"><div class="mt"><h2>Intelligence Profile</h2><span class="mbg" id="pf-st">—</span></div><div class="ma"><button class="mb" onclick="loadProfile()">↻ Refresh</button><button class="mb pri" onclick="createProfile()">+ Create</button></div></div><div class="mbody" id="pf-body"></div></div>
     <div class="mod" id="mod-graph"><div class="mh"><div class="mt"><h2>Knowledge Graph</h2><span class="mbg" id="kg-st">—</span></div><div class="ma"><button class="mb" onclick="enrichGraph()">✦ Extract</button></div></div><div class="mbody" style="position:relative"><canvas id="graph-canvas"></canvas></div></div>
-    <div class="mod" id="mod-agents"><div class="mh"><div class="mt"><h2>AI Agent Command Center</h2><span class="mbg" id="ag-st">—</span></div><div class="ma"><button class="mb" onclick="loadAgents()">↻ Refresh</button></div></div><div class="mbody sy" id="ag-body"></div></div>
+    <div class="mod" id="mod-agents"><div class="mh"><div class="mt"><h2>Agent Command Center</h2><span class="mbg" id="ag-st">—</span></div><div class="ma"><button class="mb" onclick="loadAgents()">↻ Refresh</button></div></div><div class="mbody sy" id="ag-body"></div></div>
     <div class="mod" id="mod-decisions"><div class="mh"><div class="mt"><h2>Decision Engine</h2></div><div class="ma"><button class="mb pri" onclick="runDecision()">▶ Analyze</button></div></div><div class="mbody sy" id="dc-body"><div class="es"><div class="m">Click Analyze to run root cause + SWOT</div></div></div></div>
     <div class="mod" id="mod-memory"><div class="mh"><div class="mt"><h2>Memory System</h2><span class="mbg" id="mm-st">0 chunks</span></div><div class="ma"><button class="mb" onclick="searchMem()">⌕ Search</button></div></div><div class="mbody" style="padding:14px"><div style="display:flex;gap:8px;margin-bottom:12px"><input id="mm-q" style="flex:1;background:#0F1520;border:1px solid rgba(255,255,255,0.08);padding:8px 12px;border-radius:6px;color:#8B95A7;font-family:var(--font-mono);font-size:12px;outline:none" placeholder="Semantic search…" onkeydown="if(event.key==='Enter')searchMem()"><button class="mb pri" onclick="searchMem()">Query</button></div><div id="mm-results"></div></div></div>
     <div class="mod" id="mod-query"><div class="mh"><div class="mt"><h2>Intelligence Query</h2><span class="mbg" id="nq-st">—</span></div><div class="ma"><button class="mb pri" onclick="runQuery()">▶ Execute</button></div></div><div class="mbody sy"><div style="padding:16px;display:flex;flex-direction:column;gap:10px"><textarea id="nq-input" class="qi" placeholder="Ask a business question…" onkeydown="if(event.key==='Enter'&&(event.metaKey||event.ctrlKey)){event.preventDefault();runQuery();}"></textarea><div style="display:flex;flex-wrap:wrap;gap:6px"><span class="qc" onclick="setQuery('Why did revenue drop in Q3?')">Why did revenue drop in Q3?</span><span class="qc" onclick="setQuery('What are the main churn drivers?')">Churn drivers?</span><span class="qc" onclick="setQuery('What actions should we take to improve margins?')">Improve margins?</span></div></div><div id="nq-results" style="margin:0 16px 16px"><div class="es"><div class="m">Type a question and press Execute</div></div></div></div></div>
